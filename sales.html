@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sales Entry</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+</head>
+<body class="p-4">
+  <header class="bg-primary text-white p-3 d-flex justify-content-between align-items-center">
+  <div class="d-flex align-items-center">
+    <img src="logo.jpg" alt="Company Logo" style="height: 100px; margin-right: 10px;">
+    <h4 class="m-0">Stock Manager</h4>
+  </div>
+</header>
+  
+  <h2>Sales Entry</h2>
+  <form id="salesForm" class="row g-3">
+    <div class="col-md-3"><input class="form-control" name="date" type="date" required></div>
+    <div class="col-md-3"><input class="form-control" name="customerName" placeholder="Customer Name"></div>
+    <div class="col-md-2"><input class="form-control" name="customerId" placeholder="Customer ID"></div>
+    <div class="col-md-2"><input class="form-control" name="quantity" type="number" placeholder="Quantity"></div>
+    <div class="col-md-2"><input class="form-control" name="amount" type="number" placeholder="Bill Amount"></div>
+    <div class="col-md-4">
+      <select class="form-select" name="payment">
+        <option value="Cash">Cash</option>
+        <option value="Card">Card</option>
+        <option value="UPI">UPI</option>
+        <option value="Wallet">Wallet</option>
+        <option value="Credit">Credit</option>
+      </select>
+    </div>
+    <div class="col-12"><button class="btn btn-success" type="submit">Save Sale</button></div>
+  </form>
+
+  <hr>
+  <h4>Sales History</h4>
+  <ul id="salesList" class="list-group mt-3"></ul>
+<footer class="bg-dark text-white text-center py-3 mt-5">
+  <small>&copy; SB ventures | Address: Brigade Plaza, 5th Floor, N505-N508, Subedar Chatram Road, Gandhinagar, Bangalore 560009 Karnataka</small>
+</footer>
+  <script>
+    document.getElementById("salesForm").onsubmit = function(e) {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(e.target));
+      const list = JSON.parse(localStorage.getItem("salesList") || "[]");
+      list.push(data);
+      localStorage.setItem("salesList", JSON.stringify(list));
+      e.target.reset();
+      loadSales();
+    };
+
+    function loadSales() {
+      const list = JSON.parse(localStorage.getItem("salesList") || "[]");
+      const el = document.getElementById("salesList");
+      el.innerHTML = "";
+      list.forEach(s => {
+        const item = document.createElement("li");
+        item.className = "list-group-item";
+        item.innerText = `${s.date} | ${s.customerName} | Qty: ${s.quantity} | ₹${s.amount} | ${s.payment}`;
+        el.appendChild(item);
+      });
+    }
+    loadSales();
+  </script>
+</body>
+</html>

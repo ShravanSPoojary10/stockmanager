@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Outlet Info</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+</head>
+<body class="p-4">
+  <header class="bg-primary text-white p-3 d-flex justify-content-between align-items-center">
+  <div class="d-flex align-items-center">
+    <img src="logo.jpg" alt="Company Logo" style="height: 100px; margin-right: 10px;">
+    <h4 class="m-0">Stock Manager</h4>
+  </div>
+</header>
+  <h2>Outlet Information</h2>
+  <form id="outletForm" class="row g-3">
+    <div class="col-md-4"><input class="form-control" name="outletName" placeholder="Outlet Name"></div>
+    <div class="col-md-4"><input class="form-control" name="place" placeholder="Place"></div>
+    <div class="col-md-4"><button class="btn btn-success" type="submit">Save</button></div>
+  </form>
+
+  <hr>
+  <h4>Current Outlet Info</h4>
+  <p id="outletInfo"></p>
+  <script src="js/auth.js"></script>
+  <footer class="bg-dark text-white text-center py-3 mt-5">
+  <small>&copy; SB ventures | Address: Brigade Plaza, 5th Floor, N505-N508, Subedar Chatram Road, Gandhinagar, Bangalore 560009 Karnataka</small>
+</footer>
+</body>
+</html>
