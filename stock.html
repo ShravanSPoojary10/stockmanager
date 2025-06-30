@@ -7,23 +7,37 @@
 </head>
 <body class="p-4">
   <header class="bg-primary text-white p-3 d-flex justify-content-between align-items-center">
-  <div class="d-flex align-items-center">
-    <img src="logo.jpg" alt="Company Logo" style="height: 100px; margin-right: 10px;">
-    <h4 class="m-0">Stock Manager</h4>
-  </div>
-</header>
-  <h2>Stock In/Out</h2>
+    <div class="d-flex align-items-center">
+      <img src="logo.jpg" alt="Company Logo" style="height: 100px; margin-right: 10px;">
+      <h4 class="m-0">Stock Manager</h4>
+    </div>
+  </header>
+
+  <h2 class="mt-4">Stock In/Out</h2>
   <form id="stockForm" class="row g-3">
-    <div class="col-md-3"><input class="form-control" name="date" type="date" required></div>
-    <div class="col-md-3"><input class="form-control" name="supplier" placeholder="Supplier"></div>
+    <div class="col-md-2"><input class="form-control" name="slno" placeholder="Sl No" required></div>
+    <div class="col-md-2"><input class="form-control" name="productName" placeholder="Product Name" required></div>
+    <div class="col-md-2"><input class="form-control" name="brand" placeholder="Brand" required></div>
+    <div class="col-md-2"><input class="form-control" name="hsn" placeholder="HSN Code" required></div>
+    <div class="col-md-2"><input class="form-control" name="netWeight" placeholder="Net Wt" required></div>
+    <div class="col-md-2"><input class="form-control" name="pack" placeholder="Pack" required></div>
+
+    <div class="col-md-2"><input class="form-control" name="mrp" placeholder="MRP" type="number" step="0.01"></div>
+    <div class="col-md-2"><input class="form-control" name="gst" placeholder="GST %" type="number" step="0.01"></div>
+    <div class="col-md-2"><input class="form-control" name="netPrice" placeholder="Net Price" type="number" step="0.01"></div>
+    <div class="col-md-2"><input class="form-control" name="quantity" type="number" placeholder="Quantity" required></div>
+
+    <div class="col-md-2"><input class="form-control" name="date" type="date" required></div>
+    <div class="col-md-2"><input class="form-control" name="supplier" placeholder="Supplier"></div>
     <div class="col-md-2"><input class="form-control" name="invoice" placeholder="Invoice No"></div>
-    <div class="col-md-2"><input class="form-control" name="quantity" type="number" placeholder="Qty"></div>
+
     <div class="col-md-2">
       <select class="form-select" name="type">
         <option value="IN">IN</option>
         <option value="OUT">OUT</option>
       </select>
     </div>
+
     <div class="col-12">
       <button type="submit" class="btn btn-success">Save Entry</button>
     </div>
@@ -32,9 +46,11 @@
   <hr>
   <h4>Previous Stock Entries</h4>
   <ul id="stockList" class="list-group mt-2"></ul>
-<footer class="bg-dark text-white text-center py-3 mt-5">
-  <small>&copy; SB ventures | Address: Brigade Plaza, 5th Floor, N505-N508, Subedar Chatram Road, Gandhinagar, Bangalore 560009 Karnataka</small>
-</footer>
+
+  <footer class="bg-dark text-white text-center py-3 mt-5">
+    <small>&copy; SB Ventures | Address: Brigade Plaza, 5th Floor, N505-N508, Subedar Chatram Road, Gandhinagar, Bangalore 560009 Karnataka</small>
+  </footer>
+
   <script src="js/stock.js"></script>
 </body>
 </html>
